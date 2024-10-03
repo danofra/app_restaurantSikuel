@@ -18,7 +18,7 @@
 
  <div>
     <%= form.label :ingredient_ids, "Select Ingredients" %>
-    <%= form.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+    <%= form.collection_select :ingredient_ids, Ingredient.all, :id, :name, {}, { multiple: true } %>
   </div>
 
   <div>

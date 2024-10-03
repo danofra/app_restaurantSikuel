@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_03_023911) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_03_150016) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_03_023911) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "dishes_orders", id: false, force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "dish_id", null: false
+    t.index ["dish_id"], name: "index_dishes_orders_on_dish_id"
+    t.index ["order_id"], name: "index_dishes_orders_on_order_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -50,11 +57,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_03_023911) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "table_id", null: false
-    t.bigint "dish_id", null: false
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dish_id"], name: "index_orders_on_dish_id"
     t.index ["table_id"], name: "index_orders_on_table_id"
   end
 
@@ -72,6 +77,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_03_023911) do
 
   add_foreign_key "order_dishes", "dishes"
   add_foreign_key "order_dishes", "orders"
-  add_foreign_key "orders", "dishes"
   add_foreign_key "orders", "tables"
 end

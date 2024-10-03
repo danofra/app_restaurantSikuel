@@ -21,10 +21,13 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.new(order_params.except(:dish_ids)) # Crea l'ordine senza dish_ids inizialmente
   
     respond_to do |format|
       if @order.save
+        # Associa i piatti (dishes) all'ordine attraverso la join table
+        @order.dishes << Dish.where(id: order_params[:dish_ids].reject(&:blank?))
+  
         format.html { redirect_to @order, notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
@@ -65,6 +68,8 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:table_id, {dish_ids: []}, :note)
+      params.require(:order).permit(:table_id, :note, dish_ids: []).tap do |whitelisted|
+        whitelisted[:dish_ids].reject!(&:blank?)
+      end
     end
 end
