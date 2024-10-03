@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :table
-  belongs_to :dish
+
+  has_many :order_dishes
+  has_many :dishes, through: :order_dishes
 end

@@ -1,17 +1,25 @@
 <div id="<%= dom_id order %>">
   <p>
     <strong>Table:</strong>
-    <%= order.table_id %>
+    <%= order.table.map(&:number).join(', ') %>
   </p>
 
   <p>
     <strong>Dish:</strong>
-    <%= order.dish_id %>
+    <% if order.dishes.any? %>
+    <%= order.dishes.map(&:name).join(', ') %>
+  <% else %>
+    Nessuna portata.
+  <% end %>
   </p>
 
   <p>
     <strong>Note:</strong>
+    <% if order.note.present? %>
     <%= order.note %>
+  <% else %>
+    Nessuna nota.
+  <% end %>
   </p>
 
 </div>

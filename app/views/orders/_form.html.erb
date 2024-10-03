@@ -12,21 +12,24 @@
   <% end %>
 
   <div>
-    <%= form.label :table_id, style: "display: block" %>
-    <%= form.text_field :table_id %>
+    <%= form.label :table_id, "Select Table" %>
+    <%= form.collection_select :table_id, Table.all, :id, :number %>
   </div>
 
   <div>
-    <%= form.label :dish_id, style: "display: block" %>
-    <%= form.text_field :dish_id %>
+    <%= form.label :dish_ids, "Select Dishes" %>
+    <%= form.collection_check_boxes :dish_ids, Dish.all, :id, :name %>
   </div>
 
   <div>
-    <%= form.label :note, style: "display: block" %>
+    <%= form.label :note, "Note" %>
     <%= form.text_area :note %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit "Create Order" %>
 <% end %>
+
+
+
+
+
