@@ -1,0 +1,26 @@
+<div id="<%= dom_id dish %>">
+  <p>
+    <strong>Name:</strong>
+    <%= dish.name %>
+  </p>
+
+  <p>
+    <strong>Ingredients:</strong>
+  <% if dish.ingredients.any? %>
+    <%= dish.ingredients.map(&:name).join(', ') %>
+  <% else %>
+    Nessun ingrediente.
+  <% end %>
+  </p>
+
+  <p>
+  <strong>Note:</strong>
+  <% if dish.note.present? %>
+    <%= dish.note %>
+  <% else %>
+    Nessuna nota.
+  <% end %>
+</p>
+
+
+</div>
