@@ -1,12 +1,11 @@
 <div id="<%= dom_id table %>">
-  <p>
-    <strong>Number:</strong>
-    <%= table.number %>
-  </p>
-
-  <p>
-    <strong>Available:</strong>
-    <%= table.available %>
-  </p>
-
+<h5 class="card-title">Numero: <%= table.number %></h5>
+  <div class="d-flex justify-content-around align-items-center">
+    <div>
+      <p class="card-text">Disponibile:</p>
+    </div>
+    <div>
+      <p class="badge"><%= table.available %></p>
+    </div>
+  </div>
 </div>

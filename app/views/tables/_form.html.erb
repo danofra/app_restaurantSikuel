@@ -2,7 +2,6 @@
   <% if table.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(table.errors.count, "error") %> prohibited this table from being saved:</h2>
-
       <ul>
         <% table.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,17 +10,21 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :number, style: "display: block" %>
-    <%= form.number_field :number %>
+  <div class="mb-3">
+    <%= form.label :numero, class: "form-label" %>
+    <%= form.text_field :number, class: "form-control", placeholder: "Numero tavolo" %>
   </div>
 
-  <div>
-    <%= form.label :available, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label :disponibile, class: "form-label" %>
     <%= form.check_box :available %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <div class="d-flex justify-content-center align-items-center">
+    <button type="submit" class="btn btn-success d-flex align-items-center">
+      <i class="fas fa-check-circle me-2"></i> Salva
+    </button>
+  </div>
   </div>
 <% end %>
