@@ -1,26 +1,25 @@
 <div id="<%= dom_id dish %>">
-  <p>
-    <strong>Name:</strong>
-    <%= dish.name %>
-  </p>
-
-  <p>
-    <strong>Ingredients:</strong>
-  <% if dish.ingredients.any? %>
+  <h5 class="card-title"><%= dish.name %></h5>
+  <div class="d-flex justify-content-around align-items-center">
+    <div>
+      <p class="card-text">Ingredienti:</p>
+    </div>
+    <div>
+      <% if dish.ingredients.any? %>
     <%= dish.ingredients.map(&:name).join(', ') %>
   <% else %>
     Nessun ingrediente.
   <% end %>
-  </p>
-
-  <p>
-  <strong>Note:</strong>
-  <% if dish.note.present? %>
+    </div>
+    <div>
+    <p class="card-text">Note:</p>
+    </div>
+    <div>
+    <% if dish.note.present? %>
     <%= dish.note %>
-  <% else %>
+    <% else %>
     Nessuna nota.
-  <% end %>
-</p>
-
-
+    <% end %>
+    </div>
+  </div>
 </div>

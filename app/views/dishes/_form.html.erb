@@ -2,7 +2,6 @@
   <% if dish.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
-
       <ul>
         <% dish.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,22 +10,24 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :nome, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Nome portata" %>
   </div>
 
- <div>
-    <%= form.label :ingredient_ids, "Select Ingredients" %>
+  <div class="mb-3">
+    <%= form.label :ingredient_ids, "Seleziona uno o più ingredienti:", class: "form-label" %>
     <%= form.collection_select :ingredient_ids, Ingredient.all, :id, :name, {}, { multiple: true } %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :note, style: "display: block" %>
     <%= form.text_area :note %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="d-flex justify-content-center align-items-center">
+    <button type="submit" class="btn btn-success d-flex align-items-center">
+      <i class="fas fa-check-circle me-2"></i> Salva
+    </button>
   </div>
 <% end %>
