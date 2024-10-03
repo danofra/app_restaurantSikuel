@@ -1,12 +1,12 @@
 <div id="<%= dom_id ingredient %>">
-  <p>
-    <strong>Name:</strong>
-    <%= ingredient.name %>
-  </p>
-
-  <p>
-    <strong>Stock:</strong>
-    <%= ingredient.stock %>
-  </p>
-
+  <h5 class="card-title"><%= ingredient.name %></h5>
+  <div class="d-flex justify-content-around align-items-center">
+    <div>
+      <p class="card-text">Giacenza:</p>
+    </div>
+    <div>
+      <p class="badge"><%= ingredient.stock %></p>
+    </div>
+  </div>
 </div>
+

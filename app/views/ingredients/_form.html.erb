@@ -2,7 +2,6 @@
   <% if ingredient.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
-
       <ul>
         <% ingredient.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,17 +10,19 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Nome ingrediente" %>
   </div>
 
-  <div>
-    <%= form.label :stock, style: "display: block" %>
-    <%= form.number_field :stock %>
+  <div class="mb-3">
+    <%= form.label :stock, class: "form-label" %>
+    <%= form.number_field :stock, class: "form-control", placeholder: "Quantità" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="d-flex justify-content-center align-items-center">
+    <button type="submit" class="btn btn-success d-flex align-items-center">
+      <i class="fas fa-check-circle me-2"></i> Salva
+    </button>
   </div>
 <% end %>
