@@ -1,25 +1,27 @@
 <div id="<%= dom_id order %>">
-  <p>
-    <strong>Table:</strong>
-    <%= order.table.number %>
-  </p>
-
-  <p>
-    <strong>Dish:</strong>
+  <div class="d-flex justify-content-around align-items-center">
+    <div>
+      <p >Tavolo: <%= order.table.number %></p>
+    </div>
+    <div>
+      <p >Portate:</p>
+</div>
+    <div>
     <% if order.dishes.any? %>
     <%= order.dishes.map(&:name).join(', ') %>
   <% else %>
     Nessuna portata.
   <% end %>
-  </p>
-
-  <p>
-    <strong>Note:</strong>
-    <% if order.note.present? %>
+  </div>
+  <div>
+  <p >Note: <% if order.note.present? %>
     <%= order.note %>
   <% else %>
     Nessuna nota.
-  <% end %>
-  </p>
+  <% end %> </p>
 
+    </div>
+  </div>
 </div>
+
+
