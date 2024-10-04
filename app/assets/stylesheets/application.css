@@ -59,7 +59,7 @@ h1 {
   max-height: 350px;
   scrollbar-width: none;
   scrollbar-color: #d63877 transparent;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .show-all:hover {
@@ -69,7 +69,7 @@ h1 {
 
 .show-all::-webkit-scrollbar {
   width: 0px;
-  transition: width 0.3s ease;
+  transition: width 0.5s ease;
 }
 
 .show-all:hover::-webkit-scrollbar {
@@ -133,7 +133,7 @@ ul.list-group {
 }
 
 .form-check-input {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 /* Search */
@@ -178,7 +178,7 @@ ul.list-group {
   font-size: 1.5rem;
   padding: 15px;
   border-radius: 40px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease, transform 0.5s ease;
   width: 300px;
   height: 300px;
   text-align: center;
@@ -208,7 +208,7 @@ ul.list-group {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 .btn-info i {
@@ -234,7 +234,7 @@ ul.list-group {
   font-size: 1.5rem;
   padding: 15px;
   border-radius: 40px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease, transform 0.5s ease;
   width: 250px;
   height: 50px;
   text-align: center;
@@ -254,6 +254,70 @@ ul.list-group {
   background-color: #d63877 !important;
 }
 
+.btn-danger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #620a2d;
+  color: #ffffff;
+  font-size: 1.5rem;
+  padding: 15px;
+  border-radius: 40px;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+}
+
+.btn-danger i {
+  margin-right: 8px;
+  font-size: 2rem;
+}
+
+.btn-danger:hover {
+  background-color: red;
+  border: none;
+  transform: scale(1.05);
+}
+
+.btn-danger:active {
+  background-color: red !important;
+  border: none;
+}
+
+.btn-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f9;
+  color: #d63877;
+  border: 5px solid #d63877;
+  font-size: 1.5rem;
+  padding: 15px;
+  border-radius: 40px;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+}
+
+.btn-back i {
+  margin-right: 8px;
+  font-size: 2rem;
+}
+
+.btn-back:hover {
+  background-color: #d63877;
+  color: #ffffff;
+  border: none;
+  transform: scale(1.05);
+}
+
+.btn-back:active {
+  background-color: #d63877 !important;
+  border: none;
+}
+
 .search-container button {
   background-color: #d63877 !important;
   border: none;
@@ -261,7 +325,7 @@ ul.list-group {
   padding: 10px 15px;
   color: #fff;
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease, transform 0.5s ease;
   width: 50px;
   text-align: center;
 }
@@ -291,7 +355,7 @@ ul.list-group {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 .btn-home i {
@@ -314,7 +378,7 @@ ul.list-group {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 .btn-navbar i {
@@ -359,7 +423,7 @@ footer p {
 .footer-icons a {
   color: #d63877;
   font-size: 1.5rem;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.5s ease, transform 0.5s ease;
 }
 
 .footer-icons a:hover {
@@ -368,7 +432,7 @@ footer p {
 }
 
 .footer-icons i {
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .footer-icons a:hover i {
