@@ -198,7 +198,7 @@ ul.list-group {
   background-color: #d63877 !important;
 }
 
-.btn-danger {
+.btn-info {
   background-color: #d63877;
   border: none;
   padding: 15px;
@@ -211,17 +211,17 @@ ul.list-group {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.btn-danger i {
+.btn-info i {
   font-size: 1rem;
   color: #fff;
 }
 
-.btn-danger:hover {
+.btn-info:hover {
   background-color: #47ac6559;
   transform: scale(1.05);
 }
 
-.btn-danger:active {
+.btn-info:active {
   background-color: #d63877 !important;
 }
 
