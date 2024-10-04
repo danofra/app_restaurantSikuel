@@ -21,13 +21,13 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params.except(:dish_ids)) # Crea l'ordine senza dish_ids inizialmente
-  
+    @order = Order.new(order_params.except(:dish_ids))
+
     respond_to do |format|
       if @order.save
-        # Associa i piatti (dishes) all'ordine attraverso la join table
         @order.dishes << Dish.where(id: order_params[:dish_ids].reject(&:blank?))
-  
+        table = Table.find(@order.table_id)
+        table.update(available: false) if table.available?
         format.html { redirect_to @order, notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
@@ -52,7 +52,9 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1 or /orders/1.json
   def destroy
+    table = @order.table
     @order.destroy!
+    table.update(available: true) if table.present?
 
     respond_to do |format|
       format.html { redirect_to orders_path, status: :see_other, notice: "Order was successfully destroyed." }
@@ -61,6 +63,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
