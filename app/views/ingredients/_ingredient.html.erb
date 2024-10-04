@@ -1,12 +1,23 @@
-<div id="<%= dom_id ingredient %>">
-  <h5 class="card-title"><%= ingredient.name %></h5>
+<div id="<%= dom_id ingredient %>" class="card mb-3">
+  <div class="card-header text-center">
+    <h5 class="card-title mb-0 text-success"><%= ingredient.name %></h5>
+  </div>
+  <div class="card-body d-flex flex-column">
   <div class="d-flex justify-content-around align-items-center">
     <div>
-      <p class="card-text">Giacenza:</p>
+      <p class="fw-bold">Giacenza:</p>
     </div>
     <div>
       <p class="badge"><%= ingredient.stock %></p>
     </div>
+    </div>
+
+    <% if controller_name == 'ingredients' && action_name == 'index' %>
+      <div class="d-flex justify-content-center align-items-center mt-3">
+        <%= link_to "<i class='fas fa-info-circle'></i>".html_safe, ingredient, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+    
   </div>
 </div>
 
