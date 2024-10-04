@@ -15,6 +15,10 @@ body {
   height: 100vh;
 }
 
+main {
+  padding-bottom: 100px;
+}
+
 .container {
   margin-top: 80px;
   text-align: center;
@@ -34,11 +38,14 @@ h1 {
   justify-content: space-around;
   align-items: center;
   height: 100px;
+  margin-top: 300px;
 }
 
 /* Cards */
 
 .card {
+  display: flex;
+  flex-direction: column;
   border: none;
   border-radius: 15px;
   background-color: #ffffff;
@@ -46,8 +53,44 @@ h1 {
   cursor: pointer;
 }
 
+.show-all {
+  overflow: hidden;
+  min-height: 350px;
+  max-height: 350px;
+  scrollbar-width: none;
+  scrollbar-color: #d63877 transparent;
+  transition: all 0.3s ease;
+}
+
+.show-all:hover {
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.show-all::-webkit-scrollbar {
+  width: 0px;
+  transition: width 0.3s ease;
+}
+
+.show-all:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+.show-all::-webkit-scrollbar-thumb {
+  background-color: #d63877;
+  border-radius: 10px;
+}
+
+.show-all::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
 .card-body {
-  padding: 20px;
+  flex-grow: 1;
+}
+
+ul.list-group {
+  margin-bottom: auto;
 }
 
 .card-title {

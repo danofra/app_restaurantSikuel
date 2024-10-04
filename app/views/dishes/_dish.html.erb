@@ -1,25 +1,38 @@
-<div id="<%= dom_id dish %>">
-  <h5 class="card-title"><%= dish.name %></h5>
-  <div class="d-flex justify-content-around align-items-center">
+<div id="<%= dom_id dish %>" class="card show-all mb-3">
+  <div class="card-header text-center">
+    <h5 class="card-title mb-0 text-success"><%= dish.name %></h5>
+  </div>
+  <div class="card-body d-flex flex-column">
     <div>
-      <p class="card-text">Ingredienti:</p>
-    </div>
-    <div>
+      <p class="fw-bold">Ingredienti:</p>
       <% if dish.ingredients.any? %>
-    <%= dish.ingredients.map(&:name).join(', ') %>
-  <% else %>
-    Nessun ingrediente.
-  <% end %>
+        <ul class="list-group list-group-flush mb-3">
+          <% dish.ingredients.each do |ingredient| %>
+            <li class="list-group-item"><%= ingredient.name %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>Nessun ingrediente.</p>
+      <% end %>
     </div>
-    <div>
-    <p class="card-text">Note:</p>
+    <div class="mt-auto">
+      <p class="fw-bold">Note:</p>
+      <% if dish.note.present? %>
+        <p><%= dish.note %></p>
+      <% else %>
+        <p>Nessuna nota.</p>
+      <% end %>
     </div>
-    <div>
-    <% if dish.note.present? %>
-    <%= dish.note %>
-    <% else %>
-    Nessuna nota.
+    
+    <% if controller_name == 'dishes' && action_name == 'index' %>
+      <div class="d-flex justify-content-center align-items-center mt-3">
+        <%= link_to "<i class='fas fa-info-circle'></i>".html_safe, dish, class: "btn btn-danger" %>
+      </div>
     <% end %>
-    </div>
+    
   </div>
 </div>
+
+
+
+
