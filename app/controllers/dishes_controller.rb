@@ -26,7 +26,7 @@ class DishesController < ApplicationController
 
     respond_to do |format|
       if @dish.save
-        format.html { redirect_to @dish, notice: "Dish was successfully created." }
+        format.html { redirect_to @dish, notice: "Portata aggiunta con successo." }
         format.json { render :show, status: :created, location: @dish }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class DishesController < ApplicationController
   def update
     respond_to do |format|
       if @dish.update(dish_params)
-        format.html { redirect_to @dish, notice: "Dish was successfully updated." }
+        format.html { redirect_to @dish, notice: "Portata modificata con successo." }
         format.json { render :show, status: :ok, location: @dish }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class DishesController < ApplicationController
     @dish.destroy!
 
     respond_to do |format|
-      format.html { redirect_to dishes_path, status: :see_other, notice: "Dish was successfully destroyed." }
+      format.html { redirect_to dishes_path, status: :see_other, notice: "Portata eliminata con successo." }
       format.json { head :no_content }
     end
   end

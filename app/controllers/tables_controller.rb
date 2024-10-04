@@ -25,7 +25,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.save
-        format.html { redirect_to @table, notice: "Table was successfully created." }
+        format.html { redirect_to @table, notice: "Tavolo aggiunto con successo." }}
         format.json { render :show, status: :created, location: @table }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TablesController < ApplicationController
   def update
     respond_to do |format|
       if @table.update(table_params)
-        format.html { redirect_to @table, notice: "Table was successfully updated." }
+        format.html { redirect_to @table, notice: "Tavolo modificato con successo." }
         format.json { render :show, status: :ok, location: @table }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class TablesController < ApplicationController
     @table.destroy!
 
     respond_to do |format|
-      format.html { redirect_to tables_path, status: :see_other, notice: "Table was successfully destroyed." }
+      format.html { redirect_to tables_path, status: :see_other, notice: "Tavolo eliminato con successo." }
       format.json { head :no_content }
     end
   end

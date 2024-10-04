@@ -68,9 +68,11 @@
 
     <section class="container mt-5">
       <article>
-        <div class="row">
-          <p style="color: green"><%= notice %></p>
-        </div>
+        <% if notice.present? %>
+          <div class="alert alert-success" role="alert">
+            <%= notice %>
+          </div>
+        <% end %>
         <div class="mb-4 d-flex align-items-center">
           <label class="form-check-label me-2" for="availableSwitch">Mostra solo tavoli disponibili:</label>
           <input type="checkbox" class="form-check-input" id="availableSwitch" onchange="toggleTables(this)" <%= params[:filter] == 'available' ? 'checked' : '' %>>

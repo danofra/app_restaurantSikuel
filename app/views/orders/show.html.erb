@@ -60,9 +60,11 @@
         <h1 class="text-center mb-4">Dettagli ordine</h1>
       </article>
       <article>
-          <div class="row">
-            <p style="color: green"><%= notice %></p>
+          <% if notice.present? %>
+          <div class="alert alert-success" role="alert">
+            <%= notice %>
           </div>
+        <% end %>
           <div>
             <%= render @order %>
           </div>
