@@ -15,9 +15,11 @@
     <%= form.text_field :number, class: "form-control", placeholder: "Numero tavolo" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :disponibile, class: "form-label" %>
-    <%= form.check_box :available %>
+  <div class="mb-4 d-flex justify-content-center align-items-center">
+    <label class="form-check-label me-3" for="availableCheckbox">
+      Disponibile
+    </label>
+    <%= form.check_box :available, { class: "form-check-input", id: "availableCheckbox" } %>
   </div>
 
   <div>
@@ -28,3 +30,5 @@
   </div>
   </div>
 <% end %>
+
+
