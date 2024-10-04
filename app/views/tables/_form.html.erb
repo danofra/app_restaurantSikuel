@@ -1,7 +1,7 @@
-<%= form_with(model: table) do |form| %>
+<%= form_with(model: table, local: true) do |form| %>
   <% if table.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(table.errors.count, "error") %> prohibited this table from being saved:</h2>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(table.errors.count, "error") %> prohibited this table from being saved:</h4>
       <ul>
         <% table.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
+  <div class="mb-4">
     <%= form.label :numero, class: "form-label" %>
     <%= form.text_field :number, class: "form-control", placeholder: "Numero tavolo" %>
   </div>

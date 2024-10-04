@@ -1,26 +1,38 @@
-<div id="<%= dom_id order %>">
-  <div class="d-flex justify-content-around align-items-center">
-    <div>
-      <p >Tavolo: <%= order.table.number %></p>
-    </div>
-    <div>
-      <p >Portate:</p>
-</div>
-    <div>
-    <% if order.dishes.any? %>
-    <%= order.dishes.map(&:name).join(', ') %>
-  <% else %>
-    Nessuna portata.
-  <% end %>
+<div id="<%= dom_id order %>" class="card show-all mb-3">
+  <div class="card-header text-center">
+    <h5 class="card-title mb-0 text-success">Ordine: <%= order.id %></h5>
   </div>
-  <div>
-  <p >Note: <% if order.note.present? %>
+  <div class="card-body d-flex flex-column">
+    <div>
+      <p class="fw-bold">Tavolo: <%= order.table.number %></p>
+    </div>
+    <div class="mt-auto">
+      <p class="fw-bold">Portate:</p>
+      <% if order.dishes.any? %>
+        <ul class="list-group list-group-flush mb-3">
+          <% order.dishes.each do |dish| %>
+            <li class="list-group-item"><%= dish.name %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>Nessuna portata.</p>
+      <% end %>
+    </div>
+    <div class="mt-auto">
+      <p class="fw-bold">Note:</p>
+      <% if order.note.present? %>
     <%= order.note %>
   <% else %>
     Nessuna nota.
-  <% end %> </p>
-
+  <% end %>
     </div>
+    
+    <% if controller_name == 'orders' && action_name == 'index' %>
+      <div class="d-flex justify-content-center align-items-center mt-3">
+        <%= link_to "<i class='fas fa-info-circle'></i>".html_safe, order, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+    
   </div>
 </div>
 
