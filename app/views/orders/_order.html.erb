@@ -1,10 +1,10 @@
 <div id="<%= dom_id order %>" class="card show-all mb-3">
   <div class="card-header text-center">
-    <h5 class="card-title mb-0 text-success">Ordine: <%= order.id %></h5>
+    <h5 class="card-title mb-0 text-success">Tavolo: <%= order.table.number %></h5>
   </div>
   <div class="card-body d-flex flex-column">
     <div>
-      <p class="fw-bold">Tavolo: <%= order.table.number %></p>
+      <p class="fw-bold">Ordine: <%= order.id %></p>
     </div>
     <div class="mt-auto">
       <p class="fw-bold">Portate:</p>

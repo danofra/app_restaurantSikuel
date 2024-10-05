@@ -25,7 +25,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.save
-        format.html { redirect_to @table, notice: "Tavolo aggiunto con successo." }}
+        format.html { redirect_to @table, notice: "Tavolo aggiunto con successo." }
         format.json { render :show, status: :created, location: @table }
       else
         format.html { render :new, status: :unprocessable_entity }
