@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_05_020710) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_05_165143) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +22,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_05_020710) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "name"
-    t.integer "quantity"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,12 +42,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_05_020710) do
   end
 
   create_table "order_dishes", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "dish_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dish_id"], name: "index_order_dishes_on_dish_id"
-    t.index ["order_id"], name: "index_order_dishes_on_order_id"
+    t.integer "order_id"
+    t.integer "dish_id"
   end
 
   create_table "order_tables", force: :cascade do |t|
@@ -64,9 +59,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_05_020710) do
     t.index ["table_id"], name: "index_orders_on_table_id"
   end
 
-  create_table "orders_tables", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "table_id"
+  create_table "orders_dishes", id: false, force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "dish_id", null: false
+    t.index ["dish_id"], name: "index_orders_dishes_on_dish_id"
+    t.index ["order_id"], name: "index_orders_dishes_on_order_id"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -76,7 +73,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_05_020710) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "order_dishes", "dishes"
-  add_foreign_key "order_dishes", "orders"
   add_foreign_key "orders", "tables"
+  add_foreign_key "orders_dishes", "dishes"
+  add_foreign_key "orders_dishes", "orders"
 end

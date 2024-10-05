@@ -26,6 +26,8 @@ class DishesController < ApplicationController
 
     respond_to do |format|
       if @dish.save
+        ingredient_ids = params[:dish][:ingredient_ids].reject(&:blank?)
+        @dish.ingredient_ids = ingredient_ids
         format.html { redirect_to @dish, notice: "Portata aggiunta con successo." }
         format.json { render :show, status: :created, location: @dish }
       else
