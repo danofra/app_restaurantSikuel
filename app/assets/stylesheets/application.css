@@ -196,6 +196,7 @@ ul.list-group {
 
 .btn-primary:active {
   background-color: #d63877 !important;
+  color: #ffffff;
 }
 
 .btn-info {
@@ -223,6 +224,7 @@ ul.list-group {
 
 .btn-info:active {
   background-color: #d63877 !important;
+  color: #ffffff;
 }
 
 .btn-success {
@@ -252,6 +254,7 @@ ul.list-group {
 
 .btn-success:active {
   background-color: #d63877 !important;
+  color: #ffffff;
 }
 
 .btn-danger {
@@ -283,6 +286,7 @@ ul.list-group {
 .btn-danger:active {
   background-color: red !important;
   border: none;
+  color: #ffffff;
 }
 
 .btn-back {
@@ -316,6 +320,7 @@ ul.list-group {
 .btn-back:active {
   background-color: #d63877 !important;
   border: none;
+  color: #ffffff !important;
 }
 
 .search-container button {
