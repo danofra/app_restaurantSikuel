@@ -23,14 +23,14 @@
         <p>Nessuna nota.</p>
       <% end %>
     </div>
-    
-    <% if controller_name == 'dishes' && action_name == 'index' %>
-      <div class="d-flex justify-content-center align-items-center mt-3">
+  </div>
+  <% if controller_name == 'dishes' && action_name == 'index' %>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center align-items-center">
         <%= link_to "<i class='fas fa-info-circle'></i>".html_safe, dish, class: "btn btn-info" %>
       </div>
-    <% end %>
-    
-  </div>
+     </div> 
+  <% end %> 
 </div>
 
 

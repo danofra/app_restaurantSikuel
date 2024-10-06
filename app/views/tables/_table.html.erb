@@ -3,20 +3,20 @@
     <h5 class="card-title mb-0 text-success">Tavolo: <%= table.number %></h5>
   </div>
   <div class="card-body d-flex flex-column">
-  <div class="d-flex justify-content-around align-items-center">
-    <div>
-      <p class="fw-bold">Disponibile:</p>
+    <div class="d-flex justify-content-around align-items-center">
+      <div>
+        <p class="fw-bold">Disponibile:</p>
+      </div>
+      <div>
+        <p class="badge"><%= table.available ? 'Si' : 'No' %></p>
+      </div>
     </div>
-    <div>
-      <p class="badge"><%= table.available ? 'Si' : 'No' %></p>
-    </div>
-    </div>
-
-    <% if controller_name == 'tables' && action_name == 'index' %>
-      <div class="d-flex justify-content-center align-items-center mt-3">
+  </div>
+  <% if controller_name == 'tables' && action_name == 'index' %>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center align-items-center">
         <%= link_to "<i class='fas fa-info-circle'></i>".html_safe, table, class: "btn btn-info" %>
       </div>
-    <% end %>
-    
-  </div>
+    </div>  
+  <% end %>
 </div>

@@ -21,19 +21,19 @@
     <div class="mt-auto">
       <p class="fw-bold">Note:</p>
       <% if order.note.present? %>
-    <%= order.note %>
-  <% else %>
-    Nessuna nota.
-  <% end %>
+        <%= order.note %>
+      <% else %>
+        Nessuna nota.
+      <% end %>
     </div>
-    
-    <% if controller_name == 'orders' && action_name == 'index' %>
-      <div class="d-flex justify-content-center align-items-center mt-3">
+  </div>
+  <% if controller_name == 'orders' && action_name == 'index' %>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center align-items-center">
         <%= link_to "<i class='fas fa-info-circle'></i>".html_safe, order, class: "btn btn-info" %>
       </div>
-    <% end %>
-    
-  </div>
+    </div>
+  <% end %>  
 </div>
 
 
