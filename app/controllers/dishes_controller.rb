@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_dish, only: %i[ show edit update destroy ]
+  before_action :load_ingredients, only: %i[ new edit create update ]
 
   # GET /dishes or /dishes.json
   def index
