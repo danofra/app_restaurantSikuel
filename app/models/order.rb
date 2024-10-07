@@ -1,8 +1,10 @@
 class Order < ApplicationRecord
+  belongs_to :user
   belongs_to :table
-  validate :table_must_be_available
+  has_and_belongs_to_many :dishes, dependent: :destroy
 
-  has_and_belongs_to_many :dishes
+  validates :table_id, presence: { message: "Il tavolo è obbligatorio" }
+  validate :table_must_be_available
 
   private 
 

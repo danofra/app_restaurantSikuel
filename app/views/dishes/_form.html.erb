@@ -17,7 +17,7 @@
 
   <div class="mb-4">
     <%= form.label :ingredient_ids, "Seleziona uno o più ingredienti:", class: "form-label" %>
-    <%= form.collection_select :ingredient_ids, Ingredient.all.order(:name), :id, :name, { prompt: 'Seleziona ingredienti...' }, { class: "form-select", multiple: true } %>
+    <%= form.collection_select :ingredient_ids, @ingredients, :id, :name, { prompt: 'Seleziona ingredienti...' }, { class: "form-select", multiple: true } %>
   </div>
 
   <div class="mb-4">

@@ -1,0 +1,77 @@
+<% content_for :title, "Modifica" %>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= content_for?(:title) ? yield(:title) : "Modifica" %>
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="<%= asset_path('reset.css') %>" />
+  <link rel="stylesheet" href="<%= asset_path('application.css') %>" />
+</head>
+<body>
+  <main>
+    <section class="container mt-5">
+      <article>
+        <h1 class="text-center mb-4">Sikuel Restaurant</h1>
+      </article>
+    </section>
+    <section class="container mt-5 border rounded p-5 shadow-lg">
+      <article>
+        <h1 class="text-center mb-4">Modifica <%= resource_name.to_s.humanize %></h1>
+      </article>
+      <article>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="mb-3">
+            <%= f.label :email, class: 'form-label' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div class="alert alert-warning">
+              Attualmente in attesa di conferma per: <%= resource.unconfirmed_email %>
+            </div>
+          <% end %>
+
+          <div class="mb-3">
+            <%= f.label :nuova_password, class: 'form-label' %> <i>( Lascia vuoto se non vuoi cambiarla )</i>
+            <% if @minimum_password_length %><em><%= @minimum_password_length %> caratteri minimi</em>
+            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+            <% end %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :conferma_nuova_password, class: 'form-label' %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :password_corrente, class: 'form-label' %> <i>(abbiamo bisogno della tua password attuale per confermare le modifiche)</i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center">
+            <button type="submit" class="btn btn-success d-flex align-items-center">
+              <i class="fas fa-check-circle me-2"></i> Salva modifiche
+            </button>
+          </div>
+        <% end %>
+
+        <div class="alert alert-danger mt-5 d-flex justify-content-center align-items-center">
+        <%= button_to "Elimina account", registration_path(resource_name), data: { confirm: "Sei sicuro?", turbo_confirm: "Sei sicuro?" }, method: :delete, class: 'btn btn-danger' %>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <%= link_to "Indietro", :back, class: 'btn btn-back' %>
+        </div>
+
+      </article>
+    </section>
+  </main>
+</body>
+</html>

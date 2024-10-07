@@ -1,9 +1,10 @@
 class TablesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_table, only: %i[ show edit update destroy ]
 
   # GET /tables or /tables.json
   def index
-    @tables = Table.all
+    @tables = current_user.tables
   end
 
   # GET /tables/1 or /tables/1.json
@@ -12,7 +13,7 @@ class TablesController < ApplicationController
 
   # GET /tables/new
   def new
-    @table = Table.new
+    @table = current_user.tables.new
   end
 
   # GET /tables/1/edit
@@ -21,7 +22,7 @@ class TablesController < ApplicationController
 
   # POST /tables or /tables.json
   def create
-    @table = Table.new(table_params)
+    @table = current_user.tables.new(table_params)
 
     respond_to do |format|
       if @table.save
@@ -49,15 +50,22 @@ class TablesController < ApplicationController
 
   # DELETE /tables/1 or /tables/1.json
   def destroy
-    @table.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to tables_path, status: :see_other, notice: "Tavolo eliminato con successo." }
-      format.json { head :no_content }
+    begin
+      @table.destroy!
+      respond_to do |format|
+        format.html { redirect_to tables_path, status: :see_other, notice: "Tavolo eliminato con successo." }
+        format.json { head :no_content }
+      end
+    rescue ActiveRecord::RecordNotDestroyed => e
+      respond_to do |format|
+        format.html { redirect_to tables_path, status: :unprocessable_entity, alert: "Errore nell'eliminazione del tavolo: #{e.message}" }
+        format.json { render json: { error: e.message }, status: :unprocessable_entity }
+      end
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_table
       @table = Table.find(params[:id])

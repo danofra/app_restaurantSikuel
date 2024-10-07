@@ -12,13 +12,12 @@
 
   <div class="mb-4">
     <%= form.label :table_id, "Seleziona Tavolo", class: "form-label" %>
-    <%= form.collection_select :table_id, Table.all.order(:number), :id, :number, { prompt: 'Scegli un tavolo...' }, { class: "form-select" } %>
+    <%= form.collection_select :table_id, @tables, :id, :number, { prompt: 'Scegli un tavolo...' }, { class: "form-select" } %>
   </div>
-
 
   <div class="mb-4">
     <%= form.label :dish_ids, "Seleziona una o più portate", class: "form-label" %>
-    <%= form.collection_select :dish_ids, Dish.all.order(:name), :id, :name, {prompt: 'Seleziona portate...'}, { class: "form-select", multiple: true } %>
+    <%= form.collection_select :dish_ids, @dishes, :id, :name, { prompt: 'Seleziona portate...' }, { class: "form-select", multiple: true } %>
   </div>
 
   <div class="mb-4">

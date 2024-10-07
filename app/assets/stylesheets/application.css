@@ -16,7 +16,7 @@ body {
 }
 
 main {
-  padding-bottom: 100px;
+  padding-bottom: 240px;
 }
 
 .container {
@@ -479,5 +479,8 @@ footer p {
   }
   .card-text {
     font-size: 1rem;
+  }
+  main {
+    padding-bottom: 300px;
   }
 }
